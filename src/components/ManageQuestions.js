@@ -10,6 +10,9 @@ export default class ManageQuestions extends Component {
             <h3>Manage Questions Data</h3>
             <img src="https://cdn4.iconfinder.com/data/icons/meBaze-Freebies/512/add-notes.png" width="25" height="30"/>
             <Link to='/manage/addQuestion'>Add New Question</Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="http://www.freeiconspng.com/uploads/edit-notes-icons-21.png" width="25" height="30"/>
+            <Link to='/manage/editQuestion'>Edit Question</Link>
           </div>
         </div>
         {this.props.children}

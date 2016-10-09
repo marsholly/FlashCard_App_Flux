@@ -8,6 +8,9 @@ const bodyParser = require('body-parser');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackConfig = require('../webpack.config');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+
+const PracticeFlashcard = require('./models/PracticeFlashcard');
 
 const app = express();
 const server = http.createServer(app);
@@ -15,7 +18,7 @@ const server = http.createServer(app);
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true }));
-app.use(express.static('build'));
+app.use(express.static('src'));
 
 const compiler = webpack(webpackConfig);
 
@@ -24,6 +27,38 @@ app.use(webpackDevMiddleware(compiler, {
   noInfo: true
 }));
 
+// app.use(webpackHotMiddleware(compiler, {
+//   log: console.log,
+//   path: '/__webpack_hmr',
+//   heartbeat: 10 * 1000
+// }));
+
+// app.use(webpackHotMiddleware(compiler));
+//
+//
+// app.use('*', (req, res) => {
+//   let indexPath = path.join(__dirname, '../src/index.html');
+//   res.sendFile(indexPath);
+// });
+
+app.get('/practice', (req, res) => {
+  PracticeFlashcard.getAllQuestions((err, questions) => {
+    if(err) return res.status(400).send(err);
+    res.send(questions);
+  })
+});
+
+app.post('/practice', (req, res) => {
+  PracticeFlashcard.createQuestion(req.body, err => {
+    if(err) return res.status(400).send(err);
+    res.send('success');
+  });
+});
+
 server.listen(PORT, err => {
   console.log(err || `Express listening on port ${PORT}`);
 });
+
+// app.listen(PORT, err => {
+//   console.log(err || `Express listening on port ${PORT}`);
+// });

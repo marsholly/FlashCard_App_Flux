@@ -9,6 +9,7 @@ module.exports = {
     './src/index.js',
     'webpack-hot-middleware/client?reload=true'
   ],
+  target: "web",
   output: {
     path: __dirname + '/build',
     publicPath: '/',

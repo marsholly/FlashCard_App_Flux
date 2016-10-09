@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import ManageQuestions from './components/ManageQuestions';
 import PracticeNavbar from './components/PracticeNavbar';
 import CreateNewQ from './components/CreateNewQ';
+import EditAndDelQ from './components/EditAndDelQ';
 
 
 injectTapEventPlugin();
@@ -20,9 +21,9 @@ render(
       <IndexRoute component={Welcome}></IndexRoute>
       <Route path='manage' component={ManageQuestions}>
         <Route path='addQuestion' component={CreateNewQ} />
+        <Route path='editQuestion' component={EditAndDelQ} />
       </Route>
       <Route path='question' component={PracticeNavbar}/>
-
     </Route>
   </Router>,
   document.getElementById('root')
