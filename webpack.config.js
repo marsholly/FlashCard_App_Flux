@@ -6,7 +6,7 @@ module.exports = {
   entry: [
     './node_modules/bootstrap-loader',
     './src/css/style.css',
-    './src/index.js',
+    './src/index.js'
     'webpack-hot-middleware/client?reload=true'
   ],
   target: "web",
@@ -16,6 +16,9 @@ module.exports = {
     filename: 'bundle.js'
   },
   devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './src'
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),

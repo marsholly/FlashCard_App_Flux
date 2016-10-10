@@ -10,6 +10,7 @@ class FlashcardStore extends EventEmitter {
     AppDispatcher.register(action => {
       switch (action.type) {
         case 'RECIEVE_FLASHCARD_QUESTION':
+          console.log('STORE RECEIVE FCQ !!!!', action.payload.questions);
           _flashcardQuestions = action.payload.questions;
           this.emit('CHANGE');
           break;
@@ -23,10 +24,11 @@ class FlashcardStore extends EventEmitter {
   }
 
   stopListening(cb) {
-    this.on('CHANGE', cb);
+    this.removeListener('CHANGE', cb);
   }
 
   getAllQuestions() {
+    console.log('get all questions', _flashcardQuestions);
     return _flashcardQuestions;
   }
 }

@@ -27,21 +27,16 @@ app.use(webpackDevMiddleware(compiler, {
   noInfo: true
 }));
 
-// app.use(webpackHotMiddleware(compiler, {
-//   log: console.log,
-//   path: '/__webpack_hmr',
-//   heartbeat: 10 * 1000
-// }));
+app.use(webpackHotMiddleware(compiler));
 
-// app.use(webpackHotMiddleware(compiler));
-//
-//
+
 // app.use('*', (req, res) => {
 //   let indexPath = path.join(__dirname, '../src/index.html');
 //   res.sendFile(indexPath);
 // });
 
 app.get('/practice', (req, res) => {
+  console.log('APP JS !!!!!');
   PracticeFlashcard.getAllQuestions((err, questions) => {
     if(err) return res.status(400).send(err);
     res.send(questions);
@@ -51,14 +46,21 @@ app.get('/practice', (req, res) => {
 app.post('/practice', (req, res) => {
   PracticeFlashcard.createQuestion(req.body, err => {
     if(err) return res.status(400).send(err);
-    res.send('success');
+    res.send();
   });
 });
+
+app.delete('/practice/:id', (req, res) => {
+  let _id = req.params.id;
+  PracticeFlashcard.removeOneQuestion(_id, err => {
+    if(err) return res.status(400).send(err);
+    PracticeFlashcard.getAllQuestions((err, questions) => {
+      if(err) return res.status(400).send(err);
+      res.send(questions);
+    })
+  });
+})
 
 server.listen(PORT, err => {
   console.log(err || `Express listening on port ${PORT}`);
 });
-
-// app.listen(PORT, err => {
-//   console.log(err || `Express listening on port ${PORT}`);
-// });

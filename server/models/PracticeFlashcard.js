@@ -27,3 +27,11 @@ exports.createQuestion = function(newQuestion, cb) {
     exports.write(questions, cb);
   });
 }
+
+exports.removeOneQuestion = function(_id, cb) {
+  exports.getAllQuestions((err, questions) => {
+    if(err) return cb(err);
+    let newQuestions = questions.filter(question => question.id !== _id);
+    exports.write(newQuestions, cb);
+  })
+}
