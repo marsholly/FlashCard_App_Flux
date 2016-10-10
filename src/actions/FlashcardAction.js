@@ -10,6 +10,9 @@ const FlashcardAction = {
   removeFlashcardQuestion(id) {
     API.removeFlashcardQuestion(id)
   },
+  updateFlashcardQuestion(newQuestion) {
+    API.updateFlashcardQuestion(newQuestion)
+  }
 
 }
 

@@ -43,14 +43,12 @@ export default class CreateNewQ extends Component {
         <div className="text-center">
           <h4>New Question</h4>
           <TextField
-            hintText="Category"
             floatingLabelText="Category"
             value={this.state.category}
             onChange={e => this.setState({category: e.target.value})}
           />
           <br />
           <TextField
-            hintText="Question"
             floatingLabelText="Question"
             fullWidth={true}
             value={this.state.question}
@@ -68,7 +66,6 @@ export default class CreateNewQ extends Component {
           />
           <br />
           <TextField
-            hintText="Correct Answer"
             floatingLabelText="Correct Answer"
             fullWidth={true}
             value={this.state.correctAnswer}

@@ -56,7 +56,18 @@ app.delete('/practice/:id', (req, res) => {
     PracticeFlashcard.getAllQuestions((err, questions) => {
       if(err) return res.status(400).send(err);
       res.send(questions);
-    })
+    });
+  });
+})
+
+app.put('/practice/:id', (req, res) => {
+  let _id = req.params.id;
+  PracticeFlashcard.updateOneQuestion(_id, req.body, (err, question) => {
+    if(err) return res.status(400).send(err);
+    PracticeFlashcard.getAllQuestions((err, questions) => {
+      if(err) return res.status(400).send(err);
+      res.send(questions);
+    });
   });
 })
 

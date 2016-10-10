@@ -20,7 +20,13 @@ const API = {
       .then(ServerAction.recieveFlashcardQuestion)
       .catch(console.error)
   },
-
+  updateFlashcardQuestion(newQuestion) {
+    let id = newQuestion.id;
+    axios.put(`/practice/${id}`, newQuestion)
+      .then(res => res.data)
+      .then(ServerAction.recieveFlashcardQuestion)
+      .catch(console.error)
+  }
 }
 
 export default API;
