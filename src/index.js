@@ -12,6 +12,7 @@ import PracticeNavbar from './components/PracticeNavbar';
 import CreateNewQ from './components/CreateNewQ';
 import EditAndDelQ from './components/EditAndDelQ';
 import RandomQuestions from './components/RandomQuestions';
+import CategoryQuestions from './components/CategoryQuestions';
 
 
 injectTapEventPlugin();
@@ -26,6 +27,7 @@ render(
       </Route>
       <Route path='practices' component={PracticeNavbar}>
         <Route path="randomQuestion" component={RandomQuestions}/>
+        <Route path='categoryQuestion/:categoryName' component={CategoryQuestions}/>
       </Route>
     </Route>
   </Router>,

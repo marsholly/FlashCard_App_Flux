@@ -39,7 +39,7 @@ export default class RandomQuestions extends Component {
 
   render() {
     let { flashcard } = this.state;
-    if(flashcard.length){
+    if (flashcard.length) {
       let len = flashcard.length;
       let index = Math.floor(Math.random() * len);
       let card = flashcard[index];

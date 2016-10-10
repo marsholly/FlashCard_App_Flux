@@ -90,7 +90,7 @@ export default class EditAndDelQ extends Component {
       />,
     ];
 
-    if(flashcard) {
+    if(flashcard.length) {
       tableData = flashcard;
       return (
         <div className="container">
