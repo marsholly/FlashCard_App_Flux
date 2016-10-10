@@ -36,7 +36,6 @@ app.use(webpackHotMiddleware(compiler));
 // });
 
 app.get('/practice', (req, res) => {
-  console.log('APP JS !!!!!');
   PracticeFlashcard.getAllQuestions((err, questions) => {
     if(err) return res.status(400).send(err);
     res.send(questions);

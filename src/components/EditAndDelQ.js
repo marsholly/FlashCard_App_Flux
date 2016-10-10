@@ -34,7 +34,6 @@ export default class EditAndDelQ extends Component {
 
   render() {
     let { flashcard } = this.state;
-    console.log('flashcard:', flashcard)
     let tableData = [];
     if(flashcard) {
       tableData = flashcard;
