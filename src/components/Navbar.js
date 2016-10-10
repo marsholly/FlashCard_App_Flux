@@ -24,7 +24,7 @@ export default class Navbar extends Component {
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
                   <li><Link to='/'>HOME</Link></li>
-                  <li><Link to='/question'>PRACTICE</Link></li>
+                  <li><Link to='/practices'>PRACTICE</Link></li>
                   <li><Link to='/'>TEST</Link></li>
                 </ul>
               </div>

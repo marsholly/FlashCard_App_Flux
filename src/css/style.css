@@ -3,3 +3,18 @@
   overflow:hidden;
   text-overflow: ellipsis;
 }
+
+.flashcard {
+  width: 350px;
+  height: 450px;
+  border: 2px solid #D2B4DE;
+  padding: 20px;
+  background-color: #D6EAF8;
+  border-radius: 30px;
+  box-shadow:12px 8px 8px #AEB6BF;
+}
+
+.flashcardcenter {
+  margin-left: 400px;
+  height: 500px;
+}

@@ -7,8 +7,8 @@ export default class PracticeNavbar extends Component {
       <div className="container">
         <div className="row">
           <ol className="breadcrumb">
-            <li><Link to='/randomQuestion'>Random</Link></li>
-            <li><Link to='/'>Category</Link></li>
+            <li><Link to='/practices/randomQuestion'>Random</Link></li>
+            <li><Link to='/practices/'>Category</Link></li>
             <li>Data</li>
           </ol>
         </div>

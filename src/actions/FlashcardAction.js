@@ -1,4 +1,5 @@
 import API from '../API';
+import AppDispatcher from '../AppDispatcher';
 
 const FlashcardAction = {
   getAllFlashcardQuestions() {
@@ -12,6 +13,12 @@ const FlashcardAction = {
   },
   updateFlashcardQuestion(newQuestion) {
     API.updateFlashcardQuestion(newQuestion)
+  },
+  nextFlashcardQuestion(id) {
+    AppDispatcher.dispatch({
+      type: 'NEXT_FLASHCARD_QUESTION',
+      payload: { id }
+    });
   }
 
 }

@@ -26,7 +26,7 @@ const API = {
       .then(res => res.data)
       .then(ServerAction.recieveFlashcardQuestion)
       .catch(console.error)
-  }
+  },
 }
 
 export default API;

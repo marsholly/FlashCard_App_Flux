@@ -11,6 +11,7 @@ import ManageQuestions from './components/ManageQuestions';
 import PracticeNavbar from './components/PracticeNavbar';
 import CreateNewQ from './components/CreateNewQ';
 import EditAndDelQ from './components/EditAndDelQ';
+import RandomQuestions from './components/RandomQuestions';
 
 
 injectTapEventPlugin();
@@ -23,7 +24,9 @@ render(
         <Route path='addQuestion' component={CreateNewQ} />
         <Route path='editQuestion' component={EditAndDelQ} />
       </Route>
-      <Route path='question' component={PracticeNavbar}/>
+      <Route path='practices' component={PracticeNavbar}>
+        <Route path="randomQuestion" component={RandomQuestions}/>
+      </Route>
     </Route>
   </Router>,
   document.getElementById('root')

@@ -1,7 +1,7 @@
 import AppDispatcher from '../AppDispatcher';
 import { EventEmitter } from 'events';
 
-let _flashcardQuestions = null;
+let _flashcardQuestions = [];
 
 class FlashcardStore extends EventEmitter {
   constructor() {
@@ -11,6 +11,14 @@ class FlashcardStore extends EventEmitter {
       switch (action.type) {
         case 'RECIEVE_FLASHCARD_QUESTION':
           _flashcardQuestions = action.payload.questions;
+          this.emit('CHANGE');
+          break;
+        case 'NEXT_FLASHCARD_QUESTION':
+          let { id } = action.payload;
+          let newFlashcardQuestions = _flashcardQuestions.filter(f=>{
+            return f.id !== id;
+          });
+          _flashcardQuestions = newFlashcardQuestions;
           this.emit('CHANGE');
           break;
 
